@@ -67,21 +67,21 @@ Levando em consideração:
 ● carro = 100 km/h
 ● ônibus = 80 km/h'''
 
-# def calcular_tempo(distancia, velocidade):
-#     tempo = distancia/velocidade
-#     return tempo
+'''def calcular_tempo(distancia, velocidade):
+    tempo = distancia/velocidade
+    return tempo
 
-# distancia = float(input('Diga a distância do seu percurso (em km):'))  #existe uma função de converter
+distancia = float(input('Diga a distância do seu percurso (em km):'))  #existe uma função de converter
 
-# velocidade_aviao = 600
-# velocidade_carro = 100
-# velocidade_onibus = 80
+velocidade_aviao = 600
+velocidade_carro = 100
+velocidade_onibus = 80
 
-# print(
-#     f'O tempo da viagem por avião é: {calcular_tempo(distancia, velocidade_aviao):.1f} horas.'
-#     f'O tempo da viagem por carro é: {calcular_tempo(distancia, velocidade_carro):.1f} horas.'
-#     f'O tempo da viagem de ônibus é: {calcular_tempo(distancia, velocidade_onibus):.1f} horas.'
-#     )
+print(
+    f'O tempo da viagem por avião é: {calcular_tempo(distancia, velocidade_aviao):.1f} horas.'/n
+    f'O tempo da viagem por carro é: {calcular_tempo(distancia, velocidade_carro):.1f} horas./n'
+    f'O tempo da viagem de ônibus é: {calcular_tempo(distancia, velocidade_onibus):.1f} horas./n
+    )'''
 
 #-------------------------------------------------------------
 #EXERCÍCIO 8
@@ -89,14 +89,14 @@ Levando em consideração:
 número de horas trabalhadas no mês.Calcule e mostre o total do seu
 salário no referido mês.'''
 
-salario_hora = float(input('Digite qual o valor do seu salário/hora'))
-tempo_trabalho = float(input('Digite quantas horas você trabalha no mês'))
+# salario_hora = float(input('Digite qual o valor do seu salário/hora'))
+# tempo_trabalho = float(input('Digite quantas horas você trabalha no mês'))
 
-def salario(hora, trabalho):
-    salario_total= hora * trabalho
-    return salario_total
+# def salario(hora, trabalho):
+#     salario_total= hora * trabalho
+#     return salario_total
 
-print(salario(salario_hora, tempo_trabalho):.2f)
+# print(salario(salario_hora, tempo_trabalho):.2f)
 
 #----------------------------------------------------------------
 #EXERCÍCIO 9 
@@ -117,3 +117,46 @@ também e estou migrando de área.
 
 Lembrando que para o retorno vamos usar print com as variáveis
 criadas e este texto é somente um exemplo, utilizem a criatividade.'''
+
+#--------------------------------------------------------------------
+#MODULO 2 
+
+#Exercicio 1 
+''' Faça um Programa que peça dois números e imprima o maior deles.
+'''
+
+# numero1 = float(input('Digite um numero: '))
+# numero2 = float(input("Digite outro numero: "))
+
+# if numero1 > numero2:
+#     print(numero1)
+# else:
+#     print(numero2)
+
+#------------------------------------------------------------------
+#MODULO 2
+#EXERCICIO 2 (entrega)
+'''Faça um Programa que pergunte em que turno você estuda. Peça para
+digitar M-matutino ou V-Vespertino ou N- Noturno. Imprima a mensagem "Bom
+Dia!", "Boa Tarde!" ou "Boa Noite!" ou "Valor Inválido!", conforme o caso.
+'''
+
+resposta = input('Em que turno você estuda? \n Digite M para Matutino. \n Digite V para vespertino. \n Ou N para noturno.').upper()
+
+
+if resposta == "M": 
+    print("Bom dia!")
+elif resposta == "V":
+    print('Boa Tarde!')
+else:
+    print('Boa noite!')
+
+
+#-----------------------------------------------------------------
+# MODULO 3
+
+#Exercicio 3 (Entrega)
+'''Crie um dicionário representando um carrinho de compras.
+Adicione produtos (chaves) e quantidades (valores) ao carrinho.
+Calcule o total do carrinho de compra.'''
+

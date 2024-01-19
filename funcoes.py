@@ -13,6 +13,16 @@ def subtracao():
 
 soma()'''
 
+# Uma função que define argumentos pode ser chamada sem argumentos?
+# Sim, uma função que define argumentos pode ser chamada sem argumentos, desde que todos os argumentos sejam definidos com valores padrão (ou seja, eles têm um valor que será usado 
+# se nenhum argumento correspondente for fornecido na chamada da função).
+
+# def minha_funcao(arg1="valor padrão", arg2=None):
+#    print(arg1, arg2)
+
+# Nesta função, arg1tem um valor padrão de "valor padrão"e arg2tem um valor padrão de None. Portanto, você pode chamar esta função sem fornecer nenhum argumento
+
+
 #MANIPULAÇAO DE ARQUIVOS
 
 #Nos temos 3 processos quando estamos manipulando arquivos em python: abertura, escrita e leitura
@@ -54,8 +64,8 @@ def multiplicacao():
     
     #Modos de abertura
     #r = read
-    #a = append = adicionar 
-    #w = write 
+    #a = append = adiciona no arquivo já existente
+    #w = write = apaga tudo e começa a escrever de novo
     #x = criar arquivo
     #r+ = leitura e escrita
 
