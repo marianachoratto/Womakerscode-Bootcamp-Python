@@ -141,15 +141,15 @@ digitar M-matutino ou V-Vespertino ou N- Noturno. Imprima a mensagem "Bom
 Dia!", "Boa Tarde!" ou "Boa Noite!" ou "Valor Inválido!", conforme o caso.
 '''
 
-resposta = input('Em que turno você estuda? \n Digite M para Matutino. \n Digite V para vespertino. \n Ou N para noturno.').upper()
+# resposta = input('Em que turno você estuda? \n Digite M para Matutino. \n Digite V para vespertino. \n Ou N para noturno.').upper()
 
 
-if resposta == "M": 
-    print("Bom dia!")
-elif resposta == "V":
-    print('Boa Tarde!')
-else:
-    print('Boa noite!')
+# if resposta == "M": 
+#     print("Bom dia!")
+# elif resposta == "V":
+#     print('Boa Tarde!')
+# else:
+#     print('Boa noite!')
 
 
 #-----------------------------------------------------------------
@@ -160,3 +160,33 @@ else:
 Adicione produtos (chaves) e quantidades (valores) ao carrinho.
 Calcule o total do carrinho de compra.'''
 
+# lista_de_compras = {
+#     'arroz': 26,
+#     'feijao': 12,
+#     "ovo": 6, 
+#     "alface": 3, 
+#     "tomate": 4.5
+# }
+
+# preco_das_compras = lista_de_compras.values()
+
+# soma_dos_valores = sum(preco_das_compras)
+
+# print(f'O valor das compras foi de: {"{:.2f}".format(soma_dos_valores)}')
+
+#----------------------------------------------------------------
+#MODULO 4
+
+'''Faça um programa, com uma função que necessite de três
+argumentos, e que forneça a soma desses três argumentos.'''
+
+numero1 = int(input("Vamos digitar 3 numeros. \n Digite o primeiro número: "))
+numero2 = int(input(" Digite o segundo número: "))
+numero3 = int(input("Digite o terceiro número: "))
+
+def soma(numero1, numero2, numero3):
+    calculo = numero1 + numero2 + numero3
+    return calculo
+
+resultado = soma(numero1, numero2, numero3)
+print(f'O resultado da soma é {resultado}.')
