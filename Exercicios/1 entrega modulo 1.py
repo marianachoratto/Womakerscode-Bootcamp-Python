@@ -41,31 +41,31 @@ Renda.
 ● Renda acima de R$ 4.664,68: alíquota máxima de 27,5%.
 '''
 '''
-salario_bruto = float(input('Digite seu salário bruto:'))
+sal_bruto = float(input('Qual o salário bruto?'))
 
-if salario_bruto <= 1903.98:
-    print(f'Você é isento de IR. Seu salário líquido é igual a {salario_bruto}')
-elif salario_bruto <= 2826.65:
-    ir2 = salario_bruto - (salario_bruto * 0.075)
-    print(f'Sua alíquota de IR é de 7,5%. Seu salário líquido é igual a {ir2}')
-elif salario_bruto <= 3751.05:
-    ir3 = salario_bruto - (salario_bruto * 0.15)
-    print(f'Sua alíquota de IR é de 15%. Seu salário líquido é igual a {ir3}')
-elif salario_bruto <= 4664.68:
-    ir4 = salario_bruto - (salario_bruto * 0.225)
-    print(f'Sua alíquota de IR é de 22,5%. Seu salário líquido é igual a {ir4}')
-else salario_bruto > 4664.69:
-    ir5 = salario_bruto - (salario_bruto * 0.275)
-    print(f'Sua alíquota de IR é de 27,5%. Seu salário líquido é igual a {ir5}')'''
+if sal_bruto <= 1903.98:
+    print(f'O salário liquído é {sal_bruto}.')
+elif sal_bruto <=  2826.65:
+    sal_liq = sal_bruto * 0.925
+    print(f'O salário liquído é {sal_liq}')
+elif sal_bruto <=  3751.05:
+    sal_liq = sal_bruto * 0.85
+    print(f'O salário liquído é {sal_liq}')    
+elif sal_bruto <=  4664.68:
+    sal_liq = sal_bruto * 0.775
+    print(f'O salário liquído é {sal_liq}')   
+else:
+    sal_liq = sal_bruto * 0.725
+    print(f'O salário liquído é {sal_liq}') 
 
 #--------------------------------------------------------------------------------
 #EXERCICIO 6 
-'''Escreva um programa que calcule o tempo de uma viagem. Faça um
+Escreva um programa que calcule o tempo de uma viagem. Faça um
 comparativo do mesmo percurso de avião, carro e ônibus.
 Levando em consideração:
-● avião = 600 km/h
-● carro = 100 km/h
-● ônibus = 80 km/h'''
+ avião = 600 km/h
+ carro = 100 km/h
+ ônibus = 80 km/h'''
 
 '''def calcular_tempo(distancia, velocidade):
     tempo = distancia/velocidade
@@ -180,13 +180,94 @@ Calcule o total do carrinho de compra.'''
 '''Faça um programa, com uma função que necessite de três
 argumentos, e que forneça a soma desses três argumentos.'''
 
-numero1 = int(input("Vamos digitar 3 numeros. \n Digite o primeiro número: "))
-numero2 = int(input(" Digite o segundo número: "))
-numero3 = int(input("Digite o terceiro número: "))
+# numero1 = int(input("Vamos digitar 3 numeros. \n Digite o primeiro número: "))
+# numero2 = int(input(" Digite o segundo número: "))
+# numero3 = int(input("Digite o terceiro número: "))
 
-def soma(numero1, numero2, numero3):
-    calculo = numero1 + numero2 + numero3
-    return calculo
+# def soma(numero1, numero2, numero3):
+#     calculo = numero1 + numero2 + numero3
+#     return calculo
 
-resultado = soma(numero1, numero2, numero3)
-print(f'O resultado da soma é {resultado}.')
+# resultado = soma(numero1, numero2, numero3)
+# print(f'O resultado da soma é {resultado}.')
+
+#---------------------------------------------------------
+"""  Desenvolva um programa que solicite ao usuário os comprimentos dos três
+lados de um triângulo e classifique-o como equilátero, isósceles ou escaleno.
+equilátero: todos os lados com o mesmo valor
+isósceles: dois lados com o mesmo valor
+escaleno: todos os lados com medidas distintas """
+
+# lado_1 = int(input("Digite o primeiro lado do triângulo:"))
+# lado_2 = int(input("Digite o segundo lado do triângulo:"))
+# lado_3 = int(input("Digite o terceiro lado do triângulo:"))
+
+# if lado_1 == lado_2 == lado_3:
+#     print('Triângulo equilátero')
+# elif lado_1 == lado_2 or lado_2 == lado_3 or lado_1 == lado_3:
+#     print('Triângulo isóceles')
+# else: 
+#     print('Triângulo escaleno')
+
+#---------------------------------------------------
+""" Crie uma função chamada contar_vogais que recebe uma string
+como parâmetro. Implemente a lógica para contar o número de vogais
+na string e retorne o total de vogais. Solicite ao usuário para inserir uma
+frase e utilize a função para contar as vogais. """
+
+
+#------------------------------------------------------
+'''
+ Reverso do número. Faça uma função que retorne o reverso de um
+número inteiro informado. Por exemplo: 127 -> 721.
+'''
+
+# numero = input('Digite um numero com mais de 2 algarismos:')
+
+# def numero_reverso(numero):
+#     array_numero = list(numero)
+#     nova_lista = []
+#     for i in array_numero[::-1]:
+#         nova_lista.append(i)
+#         print(nova_lista)
+                
+
+# numero_reverso(numero)
+
+#O que aprendemos? 
+#Existe a função list(), que quebra a string em uma lista. 
+#Você passa a variável dentro do (). Assim: list(variavel)
+#Para imprimir uma lista de trás para frente você pode usar [::-1]. O -1 é a indexação negativa e os 2 pontos: servem para dizer como a função vai rodar. 
+#A sintaxe dos pontos é [inicio:fim:pulos]
+#The first : represents the start index of the slice. By leaving it empty, you're telling Python to start at the beginning of the sequence.
+# The second : represents the stop index. Again, by leaving it empty, you're telling Python to go until the end of the sequence.
+# The -1 after the final : is the step. A step of -1 means to go backwards through the sequence.
+
+#------------------------------------------------------------
+'''
+Escreva um script que pergunta ao usuário se ele deseja converter
+uma temperatura de grau Celsius para Fahrenheit ou vice-versa. Para
+cada opção, crie uma função
+
+Plus: Crie uma terceira, que é um menu para o usuário escolher a opção
+desejada, onde esse menu chama a função de conversão correta.
+
+Responsável: Laura Perroni Quadros da Silva
+'''
+
+pergunta = (input('Você quer a temperatura em celsius ou farenheit? Digite C para celsius e F para Farenheit')).upper()
+
+def conversao_farenheit(graus_celsius):
+    farenheit = (graus_celsius*1.8) + 32
+    print(farenheit)
+
+def conversao_celsius(graus_farenheit):
+    celsius = (graus_farenheit - 32)/1.8
+    print(celsius)
+
+if pergunta == 'C' :
+    graus_celsius = int(input('Digite a temperatura em graus:'))
+    conversao_farenheit(graus_celsius)
+elif pergunta == 'F': 
+    graus_farenheit = int(input('Digite a temperatura em farenheit:'))
+    conversao_celsius(graus_farenheit)
