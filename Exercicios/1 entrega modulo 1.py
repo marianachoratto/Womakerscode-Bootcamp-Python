@@ -255,19 +255,35 @@ desejada, onde esse menu chama a função de conversão correta.
 Responsável: Laura Perroni Quadros da Silva
 '''
 
-pergunta = (input('Você quer a temperatura em celsius ou farenheit? Digite C para celsius e F para Farenheit')).upper()
+# pergunta = (input('Você quer a temperatura em celsius ou farenheit? Digite C para celsius e F para Farenheit')).upper()
 
-def conversao_farenheit(graus_celsius):
-    farenheit = (graus_celsius*1.8) + 32
-    print(farenheit)
+# def conversao_farenheit(graus_celsius):
+#     farenheit = (graus_celsius*1.8) + 32
+#     print(farenheit)
 
-def conversao_celsius(graus_farenheit):
-    celsius = (graus_farenheit - 32)/1.8
-    print(celsius)
+# def conversao_celsius(graus_farenheit):
+#     celsius = (graus_farenheit - 32)/1.8
+#     print(celsius)
 
-if pergunta == 'C' :
-    graus_celsius = int(input('Digite a temperatura em graus:'))
-    conversao_farenheit(graus_celsius)
-elif pergunta == 'F': 
-    graus_farenheit = int(input('Digite a temperatura em farenheit:'))
-    conversao_celsius(graus_farenheit)
+# if pergunta == 'C' :
+#     graus_celsius = int(input('Digite a temperatura em graus:'))
+#     conversao_farenheit(graus_celsius)
+# elif pergunta == 'F': 
+#     graus_farenheit = int(input('Digite a temperatura em farenheit:'))
+#     conversao_celsius(graus_farenheit)
+
+#----------------------------------------------------------------
+#CONTADOR DE VOGAIS 
+frase_usuario = input("Digite uma frase: ")
+
+def contador_vogais(frase_usuario):
+    contador = 0
+    vogais = 'aeiouAEIOU'
+    array = list(frase_usuario)
+    for item in array: 
+        if item in vogais: 
+            contador += 1
+    return contador 
+
+resultado = contador_vogais(frase_usuario)
+print(f'A frase "{frase_usuario}" tem {resultado} vogais.')
