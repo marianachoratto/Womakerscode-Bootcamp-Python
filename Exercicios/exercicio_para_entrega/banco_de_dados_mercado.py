@@ -25,6 +25,9 @@ cursor = conexao.cursor()
 #CRIANDO A TABELA PRODUTOS 
 # cursor.execute("CREATE TABLE produtos ( id INTEGER PRIMARY KEY AUTOINCREMENT, nome_do_produto varchar(30), categoria varchar(20), quantidade int, id_fornecedor integer, FOREIGN KEY (id_fornecedor) REFERENCES fornecedores(id) );")
 
+#CRIANDO TABELA REGISTROS 
+# cursor.execute('CREATE TABLE registros ( id INTEGER PRIMARY KEY AUTOINCREMENT, cliente TEXT, data_da_compra DATE, nome_produto INTEGER, quantidade INTEGER, FOREIGN KEY (cliente) REFERENCES clientes(nome), FOREIGN KEY (id_produto) REFERENCES produtos(id));')
+
 '''
 2. Inserção de Dados:
 - Insira dados de exemplo nas tabelas para simular um ambiente de
@@ -32,18 +35,18 @@ venda de eletrônicos. Certifique-se de incluir uma variedade de
 produtos e clientes
 '''
 #INSERINDO PRODUTOS NA TABELA 
-# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES("arroz", "prato principal", 100, 1 )')
-# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES("feijao", "prato principal", 100, 1 )')
-# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES("alface", "legumes e verduras", 100, 2 )')
-# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES("cenoura", "legumes e verduras", 100, 1 )')
-# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES("banana", "frutas", 100, 2 )')
-# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES("laranjas", "frutas", 100, 2)')
-# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES("amaciante", "produtos de limpeza", 100, 1 )')
-# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES("sabão em pó", "produtos de limpeza", 100, 2)')
+# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES("Notebook A300 Android", "Notebooks", 100, 1 )')
+# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES("MacBook Apple", "Notebooks", 100, 1 )')
+# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES("Smart TV 32 Samsung", "Smart TV", 100, 2 )')
+# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES(""Smart TV 40 Philco Android TV", "Smart TV", 100, 1 )')
+# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES("Samsung Galaxy A14", "Celulares", 100, 2 )')
+# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES("Smartphone Xiaomi Redmi 12", "Celulares", 100, 2)')
+# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES("Tablet Lenovo Tab M9", "Tablets", 100, 1 )')
+# cursor.execute('INSERT INTO produtos(nome_do_produto, categoria, quantidade, id_fornecedor) VALUES("sTablet Samsung Galaxy Tab S6", "Tablets", 100, 2)')
 
 #INSERINDO FORNECEDORES NA TABELA 
-cursor.execute('INSERT INTO fornecedores(nome, endereco, telefone) VALUES("Alfredinho", "rua das bromélias", 12345)')
-cursor.execute('INSERT INTO fornecedores(nome, endereco, telefone) VALUES("Joãozinho", "rua das camélias", 97854)')
+# cursor.execute('INSERT INTO fornecedores(nome, endereco, telefone) VALUES("Alfredinho", "rua das bromélias", 12345)')
+# cursor.execute('INSERT INTO fornecedores(nome, endereco, telefone) VALUES("Joãozinho", "rua das camélias", 97854)')
 
 
 '''

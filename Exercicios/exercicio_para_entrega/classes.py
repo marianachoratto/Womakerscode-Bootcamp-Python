@@ -22,11 +22,11 @@ envolvido e quantidade de produtos comprados.
 Responsáveis: 
 
 '''
+
 import sqlite3 
 
 conexao = sqlite3.connect('mercado')
 cursor = conexao.cursor()
-
 
 # Criando a classe Cliente
 class Cliente:
@@ -88,12 +88,6 @@ class Produto:
         fornecedor_fetch = dados.fetchone()
         self.fornecedor = Fornecedor(fornecedor_fetch[0], fornecedor_fetch[1], fornecedor_fetch[2], fornecedor_fetch[3])
 
-    def __str__(self):
-        return f'O produto de ID {self.id_produto} é {self.nome_produto}, está na categoria {self.categorias}. Seu estoque atualmente é de {self.qnt_disponivel}'
-
-    def __repr__(self):
-        return f'O produto de ID {self.id_produto} é {self.nome_produto}, está na categoria {self.categorias}. Seu estoque atualmente é de {self.qnt_disponivel}'
-
     # Fazendo função de diminuir o estoque
     def diminuirEstoque(self, qtd):
         if (qtd > self.qnt_disponivel):
@@ -102,7 +96,6 @@ class Produto:
             self.qnt_disponivel -= qtd
             cursor.execute(f'UPDATE produtos SET quantidade={self.qnt_disponivel} WHERE id={self.id_produto[0]}')
             print("Produto comprado com sucesso!")
-        
 
     # Criando Getters e Setters do Produto
         
@@ -128,18 +121,23 @@ class Produto:
     def qnt_disponivelGet(self, qnt_disponivel):
         self.qnt_disponivel = qnt_disponivel
 
-# ---------------------------------------------------------------------
+    # Criando a função STR
+    def __str__(self):
+        return f'O produto de ID {self.id_produto} é {self.nome_produto}, está na categoria {self.categorias}. Seu estoque atualmente é de {self.qnt_disponivel}'
 
+    #Criando funções para retornar as características do produto
+    def __repr__(self):
+        return f'O produto de ID {self.id_produto} é {self.nome_produto}, está na categoria {self.categorias}. Seu estoque atualmente é de {self.qnt_disponivel}'
+# --------------------------------------------------------------------
 
 # Criando a classe Fornecedor
 class Fornecedor:
-    # Fazendo o Contrutor
+    # Fazendo o Construtor
     def __init__(self, id_fornecedor, nome_fornecedor, endereco_fornecedor, telefone_fornecedor):
         self.nome_fornecedor = nome_fornecedor
         self.endereco_fornecedor = endereco_fornecedor
         self.telefone_fornecedor = telefone_fornecedor
         self.id_fornecedor = id_fornecedor
-
 
     # Criando Getters e Setters do Fornecedor
 
@@ -163,47 +161,3 @@ class Fornecedor:
 
     def telefone_fornecedorGet(self, telefone_fornecedor):
         self.telefone_fornecedor = telefone_fornecedor
-
-# ---------------------------------------------------------------------
-# CLASSE MERCADO 
-
-class Mercado:
-    # print('Bem vindo ao mercado!')
-    # doesClienteExiste = input('Você já é cliente? Digite S ou N:  ').upper()
-    # if doesClienteExiste == 'S':
-    #     nome_cliente = input('Digite seu nome:').lower()
-    #     dados = cursor.execute(f'SELECT * FROM clientes WHERE nome="{nome_cliente}" ')
-    #     cliente_fetch = dados.fetchone() ## retorna uma tupla
-    #     # print(cliente_fetch) 
-    #     # print(cliente_fetch[2])
-    #     cliente_atual = Cliente(cliente_fetch[0], cliente_fetch[1], cliente_fetch[2], cliente_fetch[3])
-    #     print(cliente_atual)
-
-    #     conexao.commit()
-    #     conexao.close()
-        
-    # if doesClienteExiste == 'N':
-    #     # id_cliente = int(input('Digite o ID do cliente: '))
-    #     nome_cliente = input('Digite o nome do cliente:   ')
-    #     telefone_cliente = int(input('Digite o telefone do cliente:   '))
-    #     endereco_cliente = input('Digite o endereço do cliente:   ')
-    #     cursor.execute(f'INSERT INTO clientes(nome, endereco, telefone) VALUES("{nome_cliente}", "{telefone_cliente}", "{endereco_cliente}");')
-    #     print("Parabéns, você foi cadastrado!")
-
-    escolha_produto = int(input(f'Qual produto você quer comprar? Digite o número: \n 1-arroz, \n 2-feijão, \n 3-alface \n 4-cenoura \n 5-banana \n 6-laranja \n 7-amaciante \n 8-sabão em pó \n' ))
-    dados = cursor.execute(f'SELECT * FROM produtos WHERE id={escolha_produto}')
-    produtos_fetch = dados.fetchone()
-    print("PRINT: ", produtos_fetch[0])
-    produto_comprado = Produto(produtos_fetch[0], produtos_fetch[1], produtos_fetch[2], produtos_fetch[3], produtos_fetch[4])
-    print(produto_comprado)
-
-    diminuir_estoque = int(input("Você quer comprar quantas unidades deste produto?  "))
-    produto_comprado.diminuirEstoque(diminuir_estoque)
-
-    conexao.commit()
-    conexao.close()
-
-# Criar tabela de registro ---> - Calcular o total de vendas por categoria de produto.
-# Colocar a possibilidade de vários fornecedores 
-#
-
