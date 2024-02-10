@@ -1,0 +1,15 @@
+<!-- Preciso informar ao back-end que essa página é filha de layout -->
+<!-- Para isso eu vou uxar a função extends(). Ela vai herdar os componentes da página pai -->
+{% extends "layout.html" %}
+
+
+{% block content %}
+    <div class="row"> 
+            <div class="col-sm-3 col-6">
+
+                <img src="{{profile.image}}" alt="" class="img-fluid img-thumbnail">
+
+                <h3 class="h5">{{profile.name}}</h3>
+            </div>
+    </div>
+{% endblock %}
