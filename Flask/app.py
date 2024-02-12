@@ -12,11 +12,14 @@ app = Flask(__name__)
 #@: This symbol indicates that app.route() is a decorator, which is a special kind of function that modifies the behavior of another function without changing its source code.
 #para criar um servidor local 
 
-@app.route("/") #simbolo de página inicial 
+@app.route("/") #simbolo de página inicial  # Estamos criando o caminho da URL!!!!!!!!
 def get_list_characters_page():
     url = 'https://rickandmortyapi.com/api/character/'
+    # abrir a reponse
     response = urllib.request.urlopen(url)
+    #variavel para ler os resultados
     data = response.read()
+    #variavel que formata para json
     dict = json.loads(data)
 
     return render_template("characters.html", characters=dict['results'] ) #retorna um HTML. 2º parâmetro pode ter variáveis
@@ -30,16 +33,13 @@ def get_profile(id):
 
     return render_template("profile.html", profile=dict ) #retorna um HTML. 2º parâmetro pode ter variáveis
 
-@app.route("/lista") # Estamos criando o caminho da URL!!!!!!!!
+@app.route("/lista") 
 def get_list_characters():
 
     # criar variavel para receber o link da API (endpoint):
     url = 'https://rickandmortyapi.com/api/character/'
-    # abrir a reponse
     response = urllib.request.urlopen(url)
-    #variavel para ler os resultados 
     characters = response.read()
-    #variavel que formata para json
     dict = json.loads(characters)
 
     characters = []
