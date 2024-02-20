@@ -1,0 +1,22 @@
+{% extends "inicio.html" %}
+{% load bootstrap5 %}
+{% block principal %}
+
+  <h1 class="text-body-emphasis">Cursos online</h1>
+  <!-- Criando uma validação -->
+  {% if sucesso %}
+  <p class="alert alert-success">Cadastro efetuado com sucesso! </p>
+  {% else %}
+  
+  <form action="" method="POST" id="form">
+    <!-- O que é crsf_token? -->
+    {% csrf_token %}
+    <!-- Vamos fazer a importação do bootstrap form -->
+    <!-- Porque utilizar o boostrap pra puxar? -->
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-primary btn-block">Finalizar cadastro</button>
+    
+  </form>
+  
+  {% endif %}
+{% endblock %}

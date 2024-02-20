@@ -4,3 +4,10 @@ Flask/.venv
 Flask/__pycache__
 Fast API/.venv
 Fast API/__pycache__
+Django/.cadastro_womakers/projeto_womakers/__pycache__
+Django/.cadastro_womakers/base/__pycache__
+Django/.cadastro_womakers/base/migrations/__pycache__
+Django/.cadastro_womakers/Lib
+Django/.cadastro_womakers/Include
+Django/.cadastro_womakers/Scripts
+Django/.cadastro_womakers/pyvenv.cfg
