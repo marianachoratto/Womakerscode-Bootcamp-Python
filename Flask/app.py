@@ -29,9 +29,55 @@ def get_profile(id):
     url = 'https://rickandmortyapi.com/api/character/' + id
     response = urllib.request.urlopen(url)
     data = response.read()
-    dict = json.loads(data)
+    character_data = json.loads(data) #atributo da variável
 
-    return render_template("profile.html", profile=dict ) #retorna um HTML. 2º parâmetro pode ter variáveis
+    character_profile = {
+        'name': character_data['name'],
+        'status': character_data['status'],
+        'species': character_data['species'],
+        'gender': character_data['gender'],
+        'origin': character_data['origin']['name'],
+        'location': character_data['location']['name'], 
+        'image': character_data['image']
+    }
+
+
+    return render_template("profile.html", profile= character_profile ) #retorna um HTML. 2º parâmetro pode ter variáveis
+
+@app.route('/locations')
+def get_locations():
+    url = 'https://rickandmortyapi.com/api/location'
+    response = urllib.request.urlopen(url)
+    data = response.read()
+    location_data = json.loads(data)
+
+    locations = []
+    for item in location_data['results']:
+        locations.append({
+            'name': item['name'],
+            'type': item['type'],
+            'dimension': item['dimension']
+            })
+
+    return {'dicionario' : locations}
+
+#render_template("dimension.html", dicionario = locations)
+
+@app.route('/locations/<id>')
+def locations(id):
+    url = f'https://rickandmortyapi.com/api/location/{id}'
+    response = urllib.request.urlopen(url)
+    data = response.read()
+    location_data = json.loads(data)
+
+    location = {
+        'name': location_data['name'],
+        'type': location_data['type'],
+        'dimension': location_data['dimension']
+    }
+
+    return render_template("dimension.html", dicionario = location)
+
 
 @app.route("/lista") 
 def get_list_characters():
@@ -44,6 +90,18 @@ def get_list_characters():
 
     characters = []
 
+    # modo mais fácil
+    for item in dict['results']:
+        characters.append({
+            'name': item['name'], 
+            'status': item['status'],
+            'species': item['species'],
+            'gender': item['gender'], 
+            'origin': item['origin'],
+            'location': item['location']
+            })
+    return {'personagens': characters}
+
     # for character in dict['results']:
     #     character =  {
     #     'name': character['name'],
@@ -52,15 +110,6 @@ def get_list_characters():
 
     #     characters.append(character)
     # return {'characters': characters}
-
-    #modo mais fácil
-    for item in dict['results']:
-        characters.append({
-            'name': item['name'], 
-            'status': item['status']
-            })
-    return {'personagens': characters}
-
 
 
 
