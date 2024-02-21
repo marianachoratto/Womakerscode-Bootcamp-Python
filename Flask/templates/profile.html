@@ -5,16 +5,17 @@
 
 {% block content %}
     <div class="row"> 
-            <div class="col-sm-3 col-6">
-
+            
+            <div class="d-flex flex-column justify-content-center align-items-center ">
                 <img src="{{profile.image}}" alt="" class="img-fluid img-thumbnail">
                 
-                <h3 class="h5"> {{profile.name}}</h3>
-                <h3 class="h5">{{profile.status}}</h3>
-                <h3 class="h5">{{profile.species}}</h3>
-                <h3 class="h5">{{profile.gender}}</h3>
-                <a href="{{profile.origin}}"><h3 class="h5">{{profile.origin}}</h3></a>
-                <a href="{{profile.location}}"><h3 class="h5">{{profile.location}}</h3></a>
+                
+                <h3 class="h5">Nome: {{profile.name}}</h3>
+                <h3 class="h5">Status: {{profile.status}}</h3>
+                <h3 class="h5">Espécie: {{profile.species}}</h3>
+                <h3 class="h5">Gênero: {{profile.gender}}</h3>
+                <h3 class="h5">Local de Origem: <a href="{{profile.origin}}">{{profile.origin}}</a></h3>
+                <h3 class="h5">Localização atual: <a href="{{profile.location}}">{{profile.location}}</a></h3>
                 
             </div>
     </div>

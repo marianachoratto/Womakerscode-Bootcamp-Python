@@ -24,25 +24,6 @@ def get_list_characters_page():
 
     return render_template("characters.html", characters=dict['results'] ) #retorna um HTML. 2º parâmetro pode ter variáveis
 
-@app.route("/profile/<id>")  #<> é o simbolo do flask para uma variável. Eu vou passar o valor de id 
-def get_profile(id):
-    url = 'https://rickandmortyapi.com/api/character/' + id
-    response = urllib.request.urlopen(url)
-    data = response.read()
-    character_data = json.loads(data) #atributo da variável
-
-    character_profile = {
-        'name': character_data['name'],
-        'status': character_data['status'],
-        'species': character_data['species'],
-        'gender': character_data['gender'],
-        'origin': character_data['origin']['name'],
-        'location': character_data['location']['name'], 
-        'image': character_data['image']
-    }
-
-
-    return render_template("profile.html", profile= character_profile ) #retorna um HTML. 2º parâmetro pode ter variáveis
 
 @app.route('/locations')
 def get_locations():
@@ -61,7 +42,6 @@ def get_locations():
 
     return {'dicionario' : locations}
 
-#render_template("dimension.html", dicionario = locations)
 
 @app.route('/locations/<id>')
 def locations(id):
@@ -113,6 +93,25 @@ def get_list_characters():
 
 
 
+@app.route("/profile/<id>")  #<> é o simbolo do flask para uma variável. Eu vou passar o valor de id 
+def get_profile(id):
+    url = 'https://rickandmortyapi.com/api/character/' + id
+    response = urllib.request.urlopen(url)
+    data = response.read()
+    character_data = json.loads(data) #atributo da variável
+
+    character_profile = {
+        'name': character_data['name'],
+        'status': character_data['status'],
+        'species': character_data['species'],
+        'gender': character_data['gender'],
+        'origin': character_data['origin']['name'],
+        'location': character_data['location']['name'], 
+        'image': character_data['image']
+    }
+
+
+    return render_template("profile.html", profile= character_profile ) #retorna um HTML. 2º parâmetro pode ter variáveis
 
 
 
