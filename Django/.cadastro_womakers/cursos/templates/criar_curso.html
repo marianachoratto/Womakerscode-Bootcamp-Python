@@ -5,18 +5,25 @@
   <h1 class="text-body-emphasis">Cursos online</h1>
   <!-- Criando uma validação -->
   {% if sucesso %}
-  <p class="alert alert-success">Cadastro efetuado com sucesso! </p>
+  <p class="alert alert-success">Curso cadastrado com sucesso! </p>
   {% else %}
   
   <form action="" method="POST" id="form">
     <!-- O que é crsf_token? -->
     {% csrf_token %}
     <!-- Vamos fazer a importação do bootstrap form -->
-    <!-- Porque utilizar o boostrap pra puxar? O formulário é criado com boostrap -->
+    <!-- Porque utilizar o boostrap pra puxar? O formulário é criado com o boostrap -->
     {% bootstrap_form form %}
-    <button type="submit" class="btn btn-primary btn-block">Finalizar cadastro</button>
+    <button type="submit" class="btn btn-primary btn-block">Inserir curso</button>
     
   </form>
+  
+  <hr>
+  <br>
+  <h1>Cursos Cadastrados</h1><br>
+  {% for item in cursos %}
+    <p>{{item.titulo}}</p>
+  {% endfor%}
   
   {% endif %}
 {% endblock %}

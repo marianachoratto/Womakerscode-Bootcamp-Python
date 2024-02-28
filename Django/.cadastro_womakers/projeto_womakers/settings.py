@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'base',
     'bootstrap5', 
-    'cursos'
+    'cursos',
+    'rest_framework',
+    'rest_api',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +84,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
